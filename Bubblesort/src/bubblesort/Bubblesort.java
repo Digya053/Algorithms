@@ -1,23 +1,17 @@
 package bubblesort;
 
-import utils.Entity;
-
 public class Bubblesort{
 
-	Entity<Object> firstElement = new Entity<Object>();
-	Entity<Object> secondElement = new Entity<Object>();
+	public <T> void sort(T[] elements){
 
-
-	public <Entity> void sort(Entity[] elements){
-
-		Entity temp = null;
+		T temp = null;
 
 		for(int i = elements.length-1; i >= 1; i--){
 
 			for(int j = 0; j <= i-1; j++){
 
-				firstElement.setValue(elements[j]);
-				secondElement.setValue(elements[j+1]);
+				 T firstElement = elements[j];
+				T secondElement = elements[j+1];
 
 				if(compare(firstElement, secondElement) == 1){
 					temp = elements[j];
@@ -27,28 +21,28 @@ public class Bubblesort{
 			}
 		}
 		System.out.println("After sorting: ");
-		for(Entity element : elements){
+		for(T element : elements){
 			System.out.println(element);
 		}
 	}
 
 
-	private int compare(Entity<Object> firstElement, Entity<Object> secondElement) {
+	private <T> int compare(T firstElement, T secondElement) {
 
 		try{
-			if(firstElement.value == secondElement.value){
+			if(firstElement == secondElement){
 				return 0;
-			} else if((int) firstElement.value > (int) secondElement.value){
+			} else if((int) firstElement > (int) secondElement){
 				return 1;
-			} else if((int) firstElement.value < (int) secondElement.value){
+			} else if((int) firstElement < (int) secondElement){
 				return -1;
 			}
 		}  catch (ClassCastException e) {
-			if(String.valueOf(firstElement.value).equals(secondElement.value)){
+			if(String.valueOf(firstElement).equals(secondElement)){
 				return 0;
-			} else if(String.valueOf(firstElement.value).compareTo(String.valueOf(secondElement.value)) > 0){
+			} else if(String.valueOf(firstElement).compareTo(String.valueOf(secondElement)) > 0){
 				return 1;
-			} else if(String.valueOf(firstElement.value).compareTo(String.valueOf(secondElement.value)) < 0){
+			} else if(String.valueOf(firstElement).compareTo(String.valueOf(secondElement)) < 0){
 				return -1;
 			}
 		}
