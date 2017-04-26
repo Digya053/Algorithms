@@ -7,11 +7,11 @@ public class MainClass {
 	public static void main(String[] args){
 
 		Bubblesort bubblesort = new Bubblesort();
-		
+
 		Integer[] integers = {1,5,8,9,4,7};
 		System.out.println("Sorting integers...");
 		bubblesort.sort(integers);
-		System.out.println("   ");;
+		System.out.println("   ");
 
 		String[] strings = {"s","d","r","z"};
 		System.out.println("Sorting strings...");
